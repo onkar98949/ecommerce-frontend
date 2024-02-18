@@ -1,13 +1,630 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+img {
+  border-radius: 5px;
+  height: 120px;
+  width: 128px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  width: 18rem;
+  height: 15rem;
+  border: 1px solid #888;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.card h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 3px;
+}
+
+.card h5 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.productsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  margin-top: 1rem;
+  padding-left: 4rem;
+  padding-top: 4vh;
+  text-align: center;
+  height: auto;
+  width: 100%;
+  gap: 8vh;
+}
+
+.productsWrapperdiv {
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 50vh;
+  height: auto;
+  width: 100%;
+  gap: 2vh;
+  justify-content: space-around;
+  padding: 4vh;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: #764abc;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #513282;
+  color: #fff;
+}
+
+.heading {
+  padding: 25px 0;
+}
+
+.cartCount {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 40px;
+}
+
+.banner {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://media.npr.org/assets/img/2021/05/20/gettyimages-1257380452_wide-9095f1cb28f5271b3d30c58349b27746c6fcbac7-s1400-c100.jpg');
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.banner_innerdiv {
+  width: 100%;
+  height: 30vh;
+}
+
+.banner h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 8vh;
+  color: white;
+}
+
+.banner h2 {
+  font-size: 4vh;
+  color: white;
+  margin: 2vh;
+}
+
+.linkbtn {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  position: relative;
+  text-transform: uppercase;
+  padding: 1rem 2.4rem;
+  border: 0.1rem solid transparent;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.5px;
+  border-radius: 75px;
+  background-color: #21c87a;
+  border-color: #21c87a;
+  color: #fff;
+  cursor: pointer;
+}
+.loginbtn .linkbtn{
+  font-weight: 500;
+  padding: 8px 10px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.loginbtn .linkbtn:hover{
+  background: transparent;
+
+}
+.logintext{
+  padding:2px 2px;
+  border: 2px solid;
+  border-radius: 10px;
+}
+.logintext:hover{
+  background: #fff;
+  color:#000;
+}
+
+.navdiv {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 11vh;
+  background-color: rgba(0, 0, 0, 0.645);
+}
+
+.logo {
+  color: #fff;
+  font-family: "Muli", sans-serif;
+  font-weight: 700;
+  font-size: 1.375rem;
+  padding: 0 4rem;
+}
+
+.navitems ul {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+  padding: 0 4vh;
+}
+.navitems i{
+  font-size: 1.4rem;
+}
+
+.navitems li {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'Popins', sans-serif;
+  font-size: 1.1rem;
+  padding: 1vh 2vh;
+  font-weight: 500;
+  position: relative;
+}
+
+.navitems li:hover {
+  color: #C4C4C4;
+  transition: 0.2s ease-in-out;
+}
+
+.navitems span {
+  font-size: 1rem;
+  position: absolute;
+}
+
+.footerdiv {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://media.npr.org/assets/img/2021/05/20/gettyimages-1257380452_wide-9095f1cb28f5271b3d30c58349b27746c6fcbac7-s1400-c100.jpg');
+}
+
+.div1 {
+  display: block;
+  width: 55vh;
+  padding: 5vh 5vh;
+  margin: 0 2vh;
+}
+
+.div1 h1 {
+  color: #fff;
+  font-size: 30px;
+  font-family: "Muli", sans-serif;
+}
+
+.div1 p {
+  color: #888;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 32px;
+  font-size: 14px;
+  font-family: "Muli", sans-serif;
+}
+
+.div2 h1,
+.div3 h1 {
+  color: #fff;
+  font-size: 22px;
+  margin: 2vh 0;
+  font-family: "Muli", sans-serif;
+}
+
+.div2 {
+  width: 30vh;
+  padding: 5vh 5vh;
+  margin: 0 2vh;
+}
+
+.div3 {
+
+  width: 30vh;
+  padding: 5vh 5vh;
+  margin: 0 2vh;
+}
+
+.div3 i {
+  font-size: 3vh;
+}
+
+.div2 p,
+.div3 p {
+  color: #888;
+  line-height: 38px;
+  font-size: 14px;
+}
+
+.copyright {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 8vh;
+  background-color: whitesmoke;
+}
+
+.copyright a {
+  font-weight: 600;
+}
+.homebtn {
+  display: none;
+}
+.products_container {
+  min-height: 86vh;
+  width: calc(100% - 250px);
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.contactdiv {
+  width: 100%;
+  height: 85vh;
+}
+
+.contact-div1 img {
+  width: 250px;
+  height: 300px;
+}
+
+.contact-maindiv {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 100%;
+  align-items: center;
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  line-height: 1.2;
+}
+
+.contact-div1 {
+  height: 90%;
+  width: 50%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+form input,form textarea{
+  font-family: 'Roboto','sans-serif';
+  font-weight: 500;
+  padding: 2px 10px;
+  outline: none
+}
+
+.textdiv {
+  margin: 10px auto;
+  width: 80%;
+}
+
+.contact-text {
+  line-height: 1.9;
+  color: #8c8c8c;
+  font-family: "Roboto", sans-serif;
+}
+
+.contact-form {
+  margin: 10px auto;
+  width: 80%;
+}
+
+.contact-div2 {
+  height: 90%;
+  width: 50%;
+  min-width: 300px;
+}
+
+.contact-form input,
+.contact-form  textarea {
+  margin-top: 15px;
+  border: none;
+  background: #f3f3f3;
+  display: block;
+  width: 100%;
+  outline: none;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #3a3f44;
+  border-radius: 0.25rem;
+}
+
+.contact-form input {
+  height: 50px;
+}
+.send-message-btn{
+  margin-top: 30px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px !important;
+  height: 50px;
+}
+
+.ppdiv{
+  height: 87vh;;
+  width: 100%;
+}
+.product-pagediv{
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pp-div1{
+  width: 40%;
+  height: 100%;
+  min-width: 300px;
+}
+.pp-div1 img{
+  box-shadow: 10px 10px 5px gray;
+  margin: 7rem auto;
+  height: 250px;
+  width: 350px;
+}
+.pp-div2{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  width: 60%;
+  height: 100%;
+  min-width: 300px;
+}
+.ppdiv h1{
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+}
+.rating-div{
+  margin-top:10px ;
+  display: flex;
+  gap: 1vh;
+}
+.rating,.response{
+  font-family: 'Popins', sans-serif;
+  font-size: 15px;
+}
+.response{
+  color: #3a3f44;
+}
+.pp-div2 h2{
+  margin-top: 30px;
+  font-weight: 500;
+  font-family: "Popins", sans-serif;
+  font-size: 22px;
+}
+.product-desc{
+  margin-top: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+.pp-cartbtn{
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px !important;
+  height: 50px;
+  padding:10px 15px ;
+}
+.brand-div p{
+  margin-top: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+.brand-div span{
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.container {
+  margin-top: 200px;
+  width: 900px;
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  border: 2px solid #888;
+}
+
+.icons{
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.profilediv{
+  width: 300px;
+}
+.profile-maindiv input,.profile-maindiv textarea{
+  background-color: #fff;
+}
+.dropdown {
+  position: relative;
+  padding: 4px 4px;
+}
+.dropdown:hover{
+  color: white;
+}
+
+.dropdown-content {
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: rgb(94, 93, 93);
+  min-width: 107px;
+  z-index: 1;
+  left:-1px;
+  margin-top: 8px;
+
+}
+.dropdown-content p:hover{
+  border-radius: 5px;
+  background-color: #3a3f44;
+}
+.dropdown-content p{
+  /* padding-left: 10px; */
+  font-size: 16px;
+  color: #fff;
+  padding:7px 9px;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+
+@media (max-width:1000px) {
+  .pp-div1{
+    width: 100%;
+    height: 50%;
+  }
+  .pp-div2{
+    width: 100%;
+  }
+  .pp-div2 h2{
+    margin-top: 8px;
+  }
+  .pp-div1 img{
+    margin:5vh auto;
+    /* margin:0 2px; */
+  }
+  .product-pagediv{
+    width: 100%;
+  }
+}
+@media (max-width:500px){
+  .pp-div1{
+    height: 40%;
+  }
+  .pp-div2{
+    padding:10px 34px ;
+  }
+  .pp-div1 img{
+    height: 230px;
+    width: 280px;
+  }
+}
+
+@media (max-width:600px) {
+  li {
+    display: none;
+  }
+
+  .banner h1 {
+    font-size: 5vh;
+  }
+
+  .banner h2 {
+    font-size: 3vh;
+  }
+
+  .div2,
+  .div3 {
+    text-align: center;
+    margin-bottom: 6vh;
+    padding: 2px;
+    width: 19vh;
+  }
+
+  .cartWrapper {
+    padding: 4vh 1.5vh;
+  }
+
+  .cartdiv1 p {
+    font-size: 1.2rem;
+    text-overflow: ellipsis;
+  }
+
+  .homebtn {
+    display: block;
+  }
+
+  .logo {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+  }
+
+  .navitems ul {
+    gap: 0;
+  }
+}
+
+@media (max-width:771px) {
+
+  .contact-div2,
+  .contact-div1,
+  .contact-maindiv {
+    width: 100%;
+  }
+
 }
