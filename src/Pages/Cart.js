@@ -39,7 +39,7 @@ const Cart = () => {
 
   const checkout =async()=>{
     try{
-      const stripe = await loadStripe()
+      const stripe = await loadStripe(process.env.SECRET_PUBLISHABLE_KEY)
       const res = await fetch("https://ecommerce-backend-q9en.onrender.com/checkout",{
           method:"POST",
           headers:{
